@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haberler</title>
+    
+</head>
+
+<body>
+    <p>Deneme</p>
+    <div th:each="news : ${listNews}">
+        <div class="border-2 rounded bg-blue-300 ">
+            <img class="w-300 h-300" th:src="${news.image}" alt="Resim vardı" title="Haber Resmi">
+            <h2 th:text="${news.name}"></h2>
+            <p th:text="${news.description}"></p>
+        </div>
+    </div>
+    <p>Ara</p>
+    <iframe src="https://www.istanbulhaber.com.tr/service/?t=1" height="280" width="140" frameborder="0" scrolling="No"></iframe>
+    <p>Ara</p>
+    <iframe src="https://www.istanbulhaber.com.tr/service/?t=2" height="150" width="468" frameborder="0" scrolling="yes"></iframe>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>

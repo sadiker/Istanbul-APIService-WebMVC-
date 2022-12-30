@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaz Saatleri</title>
+</head>
+<body>
+    <div class="p-10 mx-auto justify-center flex">
+        <table class="inline bg-red-100">
+            <tr>
+                <th>VAKİT</th>
+                <th>SAAT</th>
+            </tr>
+            <tr th:each="prayTime : ${prayTimeAll}">
+                <td th:text="${prayTime.vakit}"></td>
+                <td th:text="${prayTime.saat}"></td>
+            </tr>
+        </table>
+        <table class="inline bg-red-100">
+            <tr >
+                <th>KALAN SÜRE</th>
+            </tr>
+            <tr th:each="timeToPray : ${timeToPray}">
+                <span th:if="${timeToPray.min}+${timeToPray.hour} == 'nullnull'">
+                    <td th:text="'--:--'"></td>
+                </span>
+                <span th:unless="${timeToPray.min}+${timeToPray.hour} =='nullnull'">
+                    <td th:text="${timeToPray.hour} + ${timeToPray.min}"></td>
+                </span> 
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</body>
+</html>

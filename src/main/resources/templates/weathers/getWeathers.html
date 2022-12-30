@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+
+<body class="bg-blue-100">
+    <h1 class="text-center text-5xl p-5">İSTANBUL BİR HAFTALIK HAVA DURUMU</h1>
+    <div class=" flex justify-center">
+        <table >
+            <tr>
+                <th>Tarih</th>
+                <th>Gün</th>
+                <th>Derece</th>
+                <th>Durum</th>
+                <th>Görsel</th>
+            </tr>
+            <tr th:each="w : ${weather}">
+                <td th:text="${w.date}"></td>
+                <td th:text="${w.day}"></td>
+                <td th:text="${w.degree}"></td>
+                <td th:text="${w.description}"></td>
+                <td th:switch="${w.description}">
+                    <i th:case="'açık'" class='fas fa-sun' style='font-size:12px;color:red'></i>
+                    <i th:case="'kapalı'" class='fas fa-cloud-moon' style='font-size:12px;color:red'></i>
+                    <i th:case="'az bulutlu'" class='fas fa-cloud-sun' style='font-size:12px;color:red'></i>
+                    <i th:case="'yağmurlu'" class='fas fa-cloud-showers-heavy' style='font-size:12px;color:red'></i>
+                    <i th:case="'hafif yağmur'" class='fas fa-cloud-rain' style='font-size:12px;color:red'></i>
+                    <i th:case="*" class='fas fa-barcode' style='font-size:12px;color:red'></i>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+
+</html>

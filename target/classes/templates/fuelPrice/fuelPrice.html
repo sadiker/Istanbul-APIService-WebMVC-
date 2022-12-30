@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akaryakıt Fiyatları</title>
+</head>
+<body>
+    <h1 class="text-4xl text-center">BENZİN</h1>
+    <div class="p-10 mx-auto justify-center">
+        
+        <table class="">
+            <tr>
+                <th>MARKA</th>
+                <th>FİYAT/LT</th>
+                <th>BÖLGE</th>
+            </tr>
+            <tr th:each="gasolineEurope : ${listGasolineEurope}">
+                <td th:text="${gasolineEurope.marka}"></td>
+                <td th:text="${gasolineEurope.benzin}"></td>
+                <td>AVRUPA</td>
+            </tr>
+            <hr class="border-2 border-red-300">
+            <tr th:each="gasolineAsia : ${listGasolineAsia}">
+                <td th:text="${gasolineAsia.marka}"></td>
+                <td th:text="${gasolineAsia.benzin}"></td>
+                <td>ANADOLU</td>
+            </tr>
+        </table>
+        <hr class="border-2 border-black-300">
+            <br><br>
+    </div>
+    <h1 class="text-4xl text-center">DİZEL</h1>
+    <div class="p-10 mx-auto justify-center">
+        
+        <table class="">
+            <tr>
+                <th>MARKA</th>
+                <th>FİYAT/LT</th>
+                <th>BÖLGE</th>
+            </tr>
+            <tr th:each="dieselEurope : ${listDieselEurope}">
+                <td th:text="${dieselEurope.marka}"></td>
+                <td th:text="${dieselEurope.katkili}"></td>
+                <td>AVRUPA</td>
+            </tr>
+            <hr class="border-2 border-red-300">
+            <tr th:each="dieselEurope : ${listDieselAsia}">
+                <td th:text="${dieselEurope.marka}"></td>
+                <td th:text="${dieselEurope.katkili}"></td>
+                <td>ANADOLU</td>
+            </tr>
+        </table>
+        <hr class="border-2 border-black-300">
+            <br><br>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</body>
+</html>
