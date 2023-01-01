@@ -1,8 +1,10 @@
 Farklı WEB-API servisleri(İBBAPI-COLLECTAPI-İSTANBULHABER) kullanarak  yaptığım web uygulaması denemesidir.
 
+Ayrıca basit Restful Api isteği de karşılanmaktadır..(İlçelerAPI seçeneği)
+
 İstanbul şehri için kullanışlı bir harita,hava durumu,namaz vakitleri,akaryakıt fiyatları vb..geniş yelpezade hizmet sunmaktadır...
 
-Spring Web-Boot,Thymeleaf,Java,JavaScript,Html,Css,Tailwind,Maven kullanılmıştır.
+Spring Web-Boot,Thymeleaf,Java,JavaScript,Html,Css,Tailwind,Maven,H2 Database kullanılmıştır.
 
 Çalıştırmak için projeyi zip olarak indirin.
 
