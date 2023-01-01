@@ -1,83 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anasayfa</title>
-    <link rel="icon" type="image/x-icon" href="/images/istanbul.jpg">
+    <link rel="icon" type="image/x-icon" href="image/istanbul.jpg">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="js/home.js" defer></script>
     <script src="http://sehirharitasi.ibb.gov.tr/api/map2.js"></script>
-    <style>
-        .button {
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-
-        .button1 {
-            background-color: #4CAF50;
-        }
-
-        .button2 {
-            background-color: #dd3c41;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="flex  bg-blue-200 justify-evenly p-20 text-2xl">
-        <a href="https://www.ibb.istanbul/News/Archive">Haberler</a>
-        <a href="/fuelPrice">Akaryakıt</a>
-        <a href="https://www.tcmb.gov.tr/kurlar/kurlar_tr.html">Döviz</a>
-        <a href="/weathers">Hava Durumu</a>
-        <a href="/getPrayTime">Namaz Vakitleri</a>
-        <a href="https://tarim.ibb.istanbul/avrupa-yakasi-hal-mudurlugu/hal-fiyatlari.html">Hal Fiyatları</a>
-        <a href="https://www.ibb.istanbul/">Belediye</a>
+    <div id="up-menu">
+        <div style="display: flex; justify-content: start;">
+            <img id="photo" style="height: 100px; width: 150px;" src="image/istanbul.jpg" alt="Logo vardı..."
+                title="İstanbul">
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn" title="Kurumlar">Kurumlar</button>
+            <div class="dropdown-content">
+                <a href="http://www.istanbul.gov.tr/" title="Valilik">Valilik</a>
+                <a href="https://www.ibb.istanbul/" title="Belediye">Belediye</a>
+                <a href="https://istanbul.pol.tr/" title="İl Emniyet">İl Emniyet</a>
+                <a href="https://istanbul.jandarma.gov.tr/" title="İl Jandarma">İl Jandarma</a>
+                <a href="https://istanbul.adalet.gov.tr/" title="Adliye">Adliye</a>
+            </div>
+        </div>
     </div>
-    <hr class="border-blue-500 b-5">
+
+    <div class="menu" title="Genel Menü">
+        <a href="https://www.ibb.istanbul/News/Archive" title="Haberler">Haberler</a>
+        <a href="/fuelPrice" title="Akaryakıt">Akaryakıt</a>
+        <a href="https://www.tcmb.gov.tr/kurlar/kurlar_tr.html" title="Döviz">Döviz</a>
+        <a href="/weathers" title="Hava Durumu">Hava Durumu</a>
+        <a href="/getPrayTime" title="Namaz Vakitleri">Namaz Vakitleri</a>
+        <a href="https://tarim.ibb.istanbul/avrupa-yakasi-hal-mudurlugu/hal-fiyatlari.html" title="Hal Fiyatları">Hal
+            Fiyatları</a>
+        <a href="/districts" title="İlçelerAPI">İlçelerAPI</a>
+    </div>
     <div>
-        <iframe id="map" style="width:100%; height:500px;padding:10px;" src="https://sehirharitasi.ibb.gov.tr/"
+        <iframe id="map" style="width:100%; height:600px;padding:10px;" src="https://sehirharitasi.ibb.gov.tr/"
             allow="geolocation *;">
             <p>Tarayıcınız iframe özelliklerini desteklemiyor !</p>
         </iframe>
     </div>
-    <div class="flex justify-evenly">
-        <button id="button1" class="button button1" onclick="bigger()">Haritayı Büyüt</button>
-        <button id="button2" class="button button2" onclick="smaller()">Haritayı Küçült</button>
+    <div class="button-menu">
+        <button id="button1" class="button" onclick="bigger()">Haritayı Büyüt</button>
+        <button id="button2" class="button" onclick="smaller()">Haritayı Küçült</button>
     </div>
-    <div class="flex justify-center">
-        <iframe src="https://www.istanbulhaber.com.tr/service/?t=2" height="150" width="468" frameborder="0" scrolling="yes"></iframe>
+    <div class="istanbulhaber">
+        <iframe src="https://www.istanbulhaber.com.tr/service/?t=2" height="150" width="468" frameborder="0"
+            scrolling="yes"></iframe>
     </div>
-    
-
-    <script>
-        var ibbMAP = new SehirHaritasiAPI({ mapFrame: "mapFrame", apiKey: "" }, function () {
-            ibbMAP.Map.GetLocation(function (lon, lat) {
-                console.info(lon + " " + lat);
-            });
-        });
-
-        
-
-        function bigger () {
-        document.getElementById("map").style.height="600px"
-        }
-
-        function smaller () {
-        document.getElementById("map").style.height="400px"
-        }
-
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <hr>
+    <div title="iletişimbilgileri">
+        <p>Telefon: 0212 --- -- --</p>
+        <p>Email: .....@gmail.com</p>
+        <p>Adres: ...İstanbul...</p>
+        <a href="https://github.com/sadiker">Site Yazılım: by@sadiker</a>
+    </div>
 </body>
 
 </html>

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+import com.github.sadiker.IstanbulAPI.models.district.NoDistrict;
+
 @Configuration
 public class Config {
 
@@ -12,7 +14,10 @@ public class Config {
 	public static String getApiKey() {
 		return API_KEY;
 	}
-	
+	@Bean
+	NoDistrict noDistrict(){
+		return new NoDistrict("O id'de ilçe yoktur...");
+	}
     @Bean
 	RestTemplate restTemplate(){
 		return new RestTemplate();
