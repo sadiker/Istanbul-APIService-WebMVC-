@@ -63,6 +63,30 @@ List<District> list = districtRepository.findDistrictByDescPopulation(population
 
     }
 
+    public Result deleteById(Long id) {
+        if(districtRepository.findById(id).isPresent()){
+            districtRepository.deleteById(id);
+            return new Result(true, "O id'deki ilçe silindi..",districtRepository.findAll());
+        } else {
+            return new Result(false, "O id'de ilçe yok silinemedi", districtRepository.findAll());
+        }
+        
+    }
+
+    public Result update(District district, Long id) { 
+        if(districtRepository.findById(id).isPresent()) {
+            districtRepository.save( district);
+            return new Result(true, "İlçe bilgileri güncellendi", getAll());
+        } else {
+            return new Result(false, "İlçe bilgileri güncellenemedi,O id'de ilçe yok", getAll());
+        }  
+    }
+
+    public ReplyDistrict createDistrict(District district) {
+        districtRepository.save(district);
+        return district;
+    }
+
  
 
 }

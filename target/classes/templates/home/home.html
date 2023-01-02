@@ -57,7 +57,7 @@
     </div>
     <hr>
     <div class="sub-menu" title="Alt kısım">
-        <div title="iletişimbilgileri">
+        <div title="iletişimbilgileri" style="padding-top: 120px;">
             <p>Telefon: 0212 --- -- --</p>
             <p>Email: .....@gmail.com</p>
             <p>Adres: ...İstanbul...</p>
@@ -66,10 +66,15 @@
         <div id="api-information" title="api bilgileri">
             <h1 style="color: rgb(127, 173, 225);">API END POİNTLERİ</h1>
             <p>Bütün ilçeler: /districts</p>
-            <p>ID'ye göre getir: /districts/<strong>(id yazın)</strong></p>
-            <p>Kıtaya göre getir: /districtsByContinent?continent=<strong>(Kıta adı yaz)</strong></p>
-            <p>Nüfusa göre getir: /districtsByDescPopulation?pop=<strong>(Nüfusu buraya yaz)</strong></p>
-            <p>İlçe adına göre getir: /districtsByName?name=<strong>(İlçe adını yaz)</strong></p>
+            <p>ID'ye göre getir: /districts/<strong>(ID yazın)</strong></p>
+            <p>Kıtaya göre getir: /districtsByContinent?continent=<strong>(Kıta adı yazın)</strong></p>
+            <p>Nüfusa göre getir: /districtsByDescPopulation?population=<strong>(Nüfusu buraya yazın)</strong></p>
+            <p>İlçe adına göre getir: /districtsByName?name=<strong>(İlçe adını yazın)</strong></p>
+            <hr>
+            <p><ins>Delete,Post,Put</ins> istekleri için Postman vb. programla  yapılacaklar:</p>
+            <p>ID'ye göre sil: /districts/<strong>(ID yazın)</strong></p>
+            <p>Yeni ilçe oluştur: /districts<strong>(Postman'da yapınız)</strong></p>
+            <p>İlçeyi güncelle: /districts/<strong>(ID yazın,Postman'da yapınız)</strong></p>
         </div>
     </div>
 </body>
