@@ -16,7 +16,7 @@ public class Config {
 	}
 	@Bean
 	NoDistrict noDistrict(){
-		return new NoDistrict("O id'de ilçe yoktur...");
+		return new NoDistrict("O id'de veya isimde ilçe yoktur...");
 	}
     @Bean
 	RestTemplate restTemplate(){

@@ -107,6 +107,10 @@ hr {
     display: flex;
     justify-content: space-between;
 }
+.sub-menu {
+    display: flex;
+    justify-content: space-between;
+}
 
 
 
