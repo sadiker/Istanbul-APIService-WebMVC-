@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.github.sadiker.IstanbulAPI.models.district.District;
 import com.github.sadiker.IstanbulAPI.models.district.NoDistrict;
 import com.github.sadiker.IstanbulAPI.models.district.ReplyDistrict;
+import com.github.sadiker.IstanbulAPI.models.district.Result;
 import com.github.sadiker.IstanbulAPI.repository.DistrictRepository;
 
 @Service
@@ -32,6 +33,34 @@ public class DistrictService {
             return  noDistrict;
 
         }
+    }
+    public Result getDistrictByContinent(String continent) {
+        if (districtRepository.findDistrictByContinent(continent).size()>0) {
+            return new Result(true, "İstek Başarılı", districtRepository.findDistrictByContinent(continent));
+        } else {
+            return new Result(false, "İstanbul sadece Anadolu,Avrupa ve Adalar'dan oluşur ..!", null);
+        }
+
+    }
+
+    public ReplyDistrict getByName(String name) {
+        Optional<District> optional = districtRepository.findByName(name);
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            return noDistrict;
+        }
+
+    }
+
+    public Result getDistrictByDescPopulation(Long population) {
+List<District> list = districtRepository.findDistrictByDescPopulation(population);
+        if(list.size()>0){
+            return new Result(true, "İstek Başarılı", list);
+        } else {
+            return new Result(false, "O miktardan yüksek nüfuslu ilçe yok", null);
+        }
+
     }
 
  
