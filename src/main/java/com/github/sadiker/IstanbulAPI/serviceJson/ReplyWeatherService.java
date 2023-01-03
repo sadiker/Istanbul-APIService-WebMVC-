@@ -1,9 +1,12 @@
 package com.github.sadiker.IstanbulAPI.serviceJson;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,20 +22,21 @@ public class ReplyWeatherService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public ReplyWeathers getWeather() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("authorization", Config.getApiKey());
-        headers.set("content-type", "application/json");
-        HttpEntity<ReplyWeathers> entityReq = new HttpEntity<ReplyWeathers>(headers);
+    @Autowired
+    HttpHeaders httpHeaders;
 
+    public ReplyWeathers getWeather() {
+
+        httpHeaders.set("authorization", Config.getApiKey());
+        httpHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+        HttpEntity httpEntity = new HttpEntity(httpHeaders);
         ResponseEntity<ReplyWeathers> responseEntity = restTemplate.exchange(
                 URL,
                 HttpMethod.GET,
-                entityReq,
+                httpEntity,
                 ReplyWeathers.class);
 
-        System.out.println(responseEntity.getStatusCode());
-        System.out.println(responseEntity.getBody());
         return responseEntity.getBody();
 
     }
