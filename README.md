@@ -1,6 +1,6 @@
 Farklı WEB-API servisleri(İBBAPI-COLLECTAPI-İSTANBULHABER) kullanarak  yaptığım web uygulaması denemesidir.
 
-Ayrıca basit Restful Api isteği de karşılanmaktadır..(İlçelerAPI seçeneği)
+Ayrıca Restful Api isteği de karşılanmaktadır..(İlçelerAPI seçeneği,ayrıntılar Anasayfanın altındaki Api EndPointleri ksımında yazmaktadır)
 
 İstanbul şehri için kullanışlı bir harita,hava durumu,namaz vakitleri,akaryakıt fiyatları vb..geniş yelpezade hizmet sunmaktadır...
 
