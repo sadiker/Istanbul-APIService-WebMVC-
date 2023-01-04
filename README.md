@@ -4,7 +4,7 @@ Ayrıca Restful Api isteği de karşılanmaktadır..(İlçelerAPI seçeneği,ayr
 
 İstanbul şehri için kullanışlı bir harita,hava durumu,namaz vakitleri,akaryakıt fiyatları vb..geniş yelpezade hizmet sunmaktadır...
 
-Spring Web,Boot,DataJpa,MVC,Thymeleaf,Java,JavaScript,Html,Css,Tailwind,Maven,H2 Database kullanılmıştır.
+Spring Web,Boot,DataJpa,MVC,Thymeleaf,Java,JavaScript,Html,Css,Tailwind,Maven,H2 Database,Restful Api kullanılmıştır.
 
 Çalıştırmak için projeyi zip olarak indirin.
 
