@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.sadiker</groupId>
-	<artifactId>IstanbulAPI_MVC</artifactId>
+	<artifactId>IstanbulAPIService-MVC</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>IstanbulAPI</name>
 	<description>Demo project for Spring Boot</description>
