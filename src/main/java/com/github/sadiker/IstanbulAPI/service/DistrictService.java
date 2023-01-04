@@ -10,6 +10,7 @@ import com.github.sadiker.IstanbulAPI.models.district.District;
 import com.github.sadiker.IstanbulAPI.models.district.NoDistrict;
 import com.github.sadiker.IstanbulAPI.models.district.ReplyDistrict;
 import com.github.sadiker.IstanbulAPI.models.district.Result;
+import com.github.sadiker.IstanbulAPI.models.district.dto.DistrictDto;
 import com.github.sadiker.IstanbulAPI.repository.DistrictRepository;
 
 @Service
@@ -26,16 +27,17 @@ public class DistrictService {
     }
 
     public ReplyDistrict getById(Long id) {
-        Optional<District> optional =  districtRepository.findById(id);
-        if(optional.isPresent()) {
-            return  districtRepository.findById(id).get();
+        Optional<District> optional = districtRepository.findById(id);
+        if (optional.isPresent()) {
+            return districtRepository.findById(id).get();
         } else {
-            return  noDistrict;
+            return noDistrict;
 
         }
     }
+
     public Result getDistrictByContinent(String continent) {
-        if (districtRepository.findDistrictByContinent(continent).size()>0) {
+        if (districtRepository.findDistrictByContinent(continent).size() > 0) {
             return new Result(true, "İstek Başarılı", districtRepository.findDistrictByContinent(continent));
         } else {
             return new Result(false, "İstanbul sadece Anadolu,Avrupa ve Adalar'dan oluşur ..!", null);
@@ -54,8 +56,8 @@ public class DistrictService {
     }
 
     public Result getDistrictByDescPopulation(Long population) {
-List<District> list = districtRepository.findDistrictByDescPopulation(population);
-        if(list.size()>0){
+        List<District> list = districtRepository.findDistrictByDescPopulation(population);
+        if (list.size() > 0) {
             return new Result(true, "İstek Başarılı", list);
         } else {
             return new Result(false, "O miktardan yüksek nüfuslu ilçe yok", null);
@@ -64,22 +66,22 @@ List<District> list = districtRepository.findDistrictByDescPopulation(population
     }
 
     public Result deleteById(Long id) {
-        if(districtRepository.findById(id).isPresent()){
+        if (districtRepository.findById(id).isPresent()) {
             districtRepository.deleteById(id);
-            return new Result(true, "O id'deki ilçe silindi..",districtRepository.findAll());
+            return new Result(true, "O id'deki ilçe silindi..", districtRepository.findAll());
         } else {
             return new Result(false, "O id'de ilçe yok silinemedi", districtRepository.findAll());
         }
-        
+
     }
 
-    public Result update(District district, Long id) { 
-        if(districtRepository.findById(id).isPresent()) {
-            districtRepository.save( district);
+    public Result update(District district, Long id) {
+        if (districtRepository.findById(id).isPresent()) {
+            districtRepository.save(district);
             return new Result(true, "İlçe bilgileri güncellendi", getAll());
         } else {
             return new Result(false, "İlçe bilgileri güncellenemedi,O id'de ilçe yok", getAll());
-        }  
+        }
     }
 
     public ReplyDistrict createDistrict(District district) {
@@ -87,6 +89,20 @@ List<District> list = districtRepository.findDistrictByDescPopulation(population
         return district;
     }
 
- 
+    public Result getByPopulationAndContinent(DistrictDto districtDto) {
+
+        if (!districtRepository.getByPopulationAndContinent(districtDto).isEmpty()) {
+            return new Result(true,
+                    "Nüfusu " + districtDto.getPopulation() + " den büyük ve " + districtDto.getContinent()
+                            + " kıtasında olanlar geldi.",
+                    districtRepository.getByPopulationAndContinent(districtDto));
+        } else {
+            return new Result(false,
+                    "Nüfusu " + districtDto.getPopulation() + " den büyük ve " + districtDto.getContinent()
+                            + " kıtasında olan ilçe yoktur.",
+                    null);
+        }
+
+    }
 
 }

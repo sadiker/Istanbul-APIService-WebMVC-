@@ -1,7 +1,5 @@
 package com.github.sadiker.IstanbulAPI.repository;
 
-
-
 import java.util.List;
 import java.util.Optional;
 
@@ -11,10 +9,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.github.sadiker.IstanbulAPI.models.district.District;
+import com.github.sadiker.IstanbulAPI.models.district.dto.DistrictDto;
 
 @Repository
-public interface DistrictRepository  extends JpaRepository<District,Long> {
-
+public interface DistrictRepository extends JpaRepository<District, Long> {
 
     @Query("FROM District d WHERE LOWER(d.continent) = LOWER(:#{#param})")
     List<District> findDistrictByContinent(@Param("param") String continent);
@@ -24,4 +22,6 @@ public interface DistrictRepository  extends JpaRepository<District,Long> {
     @Query("FROM District WHERE population >= :param")
     List<District> findDistrictByDescPopulation(@Param("param") Long population);
 
+    @Query("FROM  District  WHERE  population >= :#{#districtDto.population} AND  continent = :#{#districtDto.continent}  ")
+    List<District> getByPopulationAndContinent(@Param("districtDto") DistrictDto districtDto);
 }
