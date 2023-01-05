@@ -56,26 +56,42 @@
             scrolling="yes"></iframe>
     </div>
     <hr>
-    <div class="sub-menu" title="Alt kısım">
-        <div title="iletişimbilgileri" style="padding-top: 120px;">
-            <p>Telefon: 0212 --- -- --</p>
-            <p>Email: .....@gmail.com</p>
-            <p>Adres: ...İstanbul...</p>
-            <a href="https://github.com/sadiker">Site Yazılım: by@sadiker</a>
-        </div>
-        <div id="api-information" title="api bilgileri">
-            <h1 style="color: rgb(127, 173, 225);">API END POİNTLERİ</h1>
+    <div>
+        <h1 style="color: rgb(127, 173, 225); text-align: center;">API END POİNTLERİ</h1>
+    </div>
+    <div class="sub-menu" title="Api End Point Bilgileri" >
+        <div>
+            <h3>http://localhost:8080 yazdıktan sonra ;</h3>
             <p>Bütün ilçeler: /districts</p>
             <p>ID'ye göre getir: /districts/<strong>(ID yazın)</strong></p>
             <p>Kıtaya göre getir: /districtsByContinent?continent=<strong>(Kıta adı yazın)</strong></p>
-            <p>Nüfusa göre getir: /districtsByDescPopulation?population=<strong>(Nüfusu buraya yazın)</strong></p>
+            <p>Nüfusa göre getir: /districtsByDescPopulation?population=<strong>(Nüfusu buraya yazın)</strong>
+            </p>
             <p>İlçe adına göre getir: /districtsByName?name=<strong>(İlçe adını yazın)</strong></p>
             <hr>
-            <p><ins>Delete,Post,Put</ins> istekleri için Postman vb. programla  yapılacaklar:</p>
-            <p>ID'ye göre sil: /districts/<strong>(ID yazın)</strong></p>
-            <p>Yeni ilçe oluştur: /districts<strong>(Postman'da yapınız)</strong></p>
-            <p>İlçeyi güncelle: /districts/<strong>(ID yazın,Postman'da yapınız)</strong></p>
+            <p><ins>Delete,Post,Put</ins> istekleri için Postman vb. programla yapılacaklar:</p>
+            <p>ID'ye göre sil: /districts/<strong>(ID yazın,Postman'da delete isteği yapınız)</strong></p>
+            <p>Yeni ilçe oluştur: /districts<strong>(Postman'da post isteği yapınız)</strong></p>
+            <p>İlçeyi güncelle: /districts/<strong>(ID yazın,Postman'da put yapınız)</strong></p>          
         </div>
+        <div>
+            <p><strong>DTO</strong> örneği için <ins>Browser veya Postman'la </ins> kıta ve nüfusa göre
+                işlemler: </p>
+            <p><strong>Browser'la Örnek:</strong> /districtsDtoBrowser?continent=AVRUPA&population=200000 </p>
+            <p><strong>Postman'la Örnek:</strong> istek gövdesine "kıta"="ANADOLU","nüfus"=300000 yazıp,</p>
+            <p> /districtsDto'ya get isteği gönderin </p>
+        </div>
+    </div>
+    <hr>
+    <div title="iletişimbilgileri" style="justify-content: end; display: flex;">
+        <address style="font-size: large; padding-right: 20px;">
+            Tasarlayan <a href="https://github.com/sadiker">by@sadiker</a><br>
+            Email :<br>
+            istanbulapiservicemvc@gmail.com<br>
+            Beyoğlu, İSTANBUL<br>
+            Gsm :<br>
+            0212 123 45 67
+        </address>
     </div>
 </body>
 

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.github.sadiker.IstanbulAPI.models.district.District;
 import com.github.sadiker.IstanbulAPI.models.district.NoDistrict;
 import com.github.sadiker.IstanbulAPI.models.district.ReplyDistrict;
@@ -93,16 +94,35 @@ public class DistrictService {
 
         if (!districtRepository.getByPopulationAndContinent(districtDto).isEmpty()) {
             return new Result(true,
-                    "Nüfusu " + districtDto.getPopulation() + " den büyük ve " + districtDto.getContinent()
+                    "Nüfusu " + districtDto.getPopulation() + " den büyük ve "
+                            + districtDto.getContinent()
                             + " kıtasında olanlar geldi.",
                     districtRepository.getByPopulationAndContinent(districtDto));
         } else {
             return new Result(false,
-                    "Nüfusu " + districtDto.getPopulation() + " den büyük ve " + districtDto.getContinent()
+                    "Nüfusu " + districtDto.getPopulation() + " den büyük ve "
+                            + districtDto.getContinent()
                             + " kıtasında olan ilçe yoktur.",
                     null);
         }
 
+    }
+
+    public Result getByPopulationAndContinentBrowser(Long population, String continent) {
+        if (!districtRepository.getByPopulationAndContinentBrowser(population, continent).isEmpty()) {
+            return new Result(true,
+                    "Nüfusu " + population + " den büyük ve " +
+                            continent +
+                            " kıtasında olanlar geldi ",
+                    districtRepository.getByPopulationAndContinentBrowser(population, continent));
+        } else {
+            return new Result(true,
+                    "Nüfusu " + population + " den büyük ve " +
+                            continent +
+                            " kıtasında olan ilçe yoktur.. ",
+                    null);
+
+        }
     }
 
 }

@@ -50,7 +50,7 @@ public class DistrictApiController {
 
     }
 
-    // home.htmlê ekle bunları....
+    
     @DeleteMapping("/districts/{id}")
     public Result deleteDistrict(@PathVariable("id") Long id) {
         return districtService.deleteById(id);
@@ -69,6 +69,13 @@ public class DistrictApiController {
     @GetMapping("/districtsDto")
     public Result getByPopulationAndContinent(@RequestBody(required = false) DistrictDto districtDto) {
         return districtService.getByPopulationAndContinent(districtDto);
+    }
+
+    @GetMapping("/districtsDtoBrowser")
+    public Result getByPopulationAndContinentBrowser(@RequestParam("continent") String continent,
+            @RequestParam("population") Long population) {
+                
+        return districtService.getByPopulationAndContinentBrowser(population,continent);
     }
 
 }

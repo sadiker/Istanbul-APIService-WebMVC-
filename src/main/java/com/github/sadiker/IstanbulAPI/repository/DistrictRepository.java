@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+
 import com.github.sadiker.IstanbulAPI.models.district.District;
 import com.github.sadiker.IstanbulAPI.models.district.dto.DistrictDto;
 
@@ -24,4 +25,7 @@ public interface DistrictRepository extends JpaRepository<District, Long> {
 
     @Query("FROM  District  WHERE  population >= :#{#districtDto.population} AND  continent = :#{#districtDto.continent}  ")
     List<District> getByPopulationAndContinent(@Param("districtDto") DistrictDto districtDto);
+
+    @Query("from District d where population >= :population and LOWER(d.continent) = LOWER(:#{#continent}) ")
+    List<District> getByPopulationAndContinentBrowser(@Param("population") Long population,@Param("continent")  String continent);
 }
